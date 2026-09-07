@@ -4,6 +4,10 @@ A complete revision reference for the **AWS Certified Solutions Architect – As
 
 Each page follows the same structure: a big-picture overview, numbered core concepts, comparison tables where relevant, and callout boxes flagging what the exam actually tests.
 
+[![GitHub Repo stars](https://img.shields.io/github/stars/mubtasimfuad/saa-c03-prep?style=social)](https://github.com/mubtasimfuad/saa-c03-prep)
+
+If these notes help you pass, a :material-star: [star on GitHub](https://github.com/mubtasimfuad/saa-c03-prep) is appreciated — it also helps others studying for SAA-C03 find this.
+
 !!! tip "How to use this site"
     - :material-alert-decagram: **Exam Trigger** boxes flag the exact scenario wording that points to a service/feature.
     - :material-skull-crossbones: **Exam Trap** boxes flag common wrong-answer scenarios.
