@@ -1,0 +1,98 @@
+site_name: AWS SAA-C03 Prep
+site_url: https://mubtasimfuad.github.io/saa-c03-prep/
+repo_url: https://github.com/mubtasimfuad/saa-c03-prep
+repo_name: mubtasimfuad/saa-c03-prep
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    admonition:
+      warning: material/alert-decagram
+      danger: material/skull-crossbones
+      tip: material/lightbulb-on
+      example: material/school
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+  - tags
+
+nav:
+  - Home: index.md
+  - Compute & Scaling:
+      - EC2: compute/ec2.md
+      - EBS: compute/ebs.md
+      - Load Balancing & Auto Scaling: compute/load-balancing-asg.md
+  - Networking:
+      - VPC: networking/vpc.md
+      - Route 53: networking/route53.md
+      - CloudFront & Global Accelerator: networking/cloudfront-global-accelerator.md
+  - Storage:
+      - S3: storage/s3.md
+      - EFS, FSx & Storage Gateway: storage/storage-efs-fsx.md
+  - Databases:
+      - RDS & Aurora: databases/rds-aurora.md
+      - DynamoDB & Other Databases: databases/database-dynamodb.md
+  - Security & Identity:
+      - IAM: security/iam.md
+      - Security Services: security/security.md
+  - Containers & Serverless:
+      - ECS, EKS & Kubernetes: containers-serverless/ecs-eks-k8s.md
+      - Serverless: containers-serverless/serverless.md
+  - Messaging & Decoupling:
+      - SQS & SNS: messaging/decoupling-sqs-sns.md
+  - Data & Analytics:
+      - Data & Analytics: data-analytics/data-analytics.md
+  - Resilience:
+      - Disaster Recovery: resilience/disaster-recovery.md
+  - Exam Practice:
+      - Scenario Walkthroughs: exam-practice/saa-discussion-scenarios.md
