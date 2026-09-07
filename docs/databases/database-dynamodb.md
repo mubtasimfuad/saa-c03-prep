@@ -70,6 +70,33 @@ DynamoDB is a fully managed, serverless NoSQL database. Important characteristic
 !!! warning "Exam Trigger"
     Serverless NoSQL → **DynamoDB**
 
+### DynamoDB Structure
+
+DynamoDB consists of: `Table → Items → Attributes`.
+
+| DynamoDB | Relational |
+|---|---|
+| Table | Table |
+| Item | Row |
+| Attribute | Column-like field |
+
+DynamoDB items do not need identical attributes — e.g. User 1 has `ID`, `Name`, `FavoriteMovie`; User 2 has `ID`, `Name`, `Age`, `Country`. This flexibility is a major NoSQL feature.
+
+### DynamoDB Primary Key
+
+Every table has a primary key: either a **Partition Key** alone, or a **Partition Key + Sort Key**. The combination identifies items.
+
+### DynamoDB Item Size
+
+Maximum item size: **400 KB**. DynamoDB is not designed for storing huge objects/files — a common architecture stores the object elsewhere (e.g. [S3](../storage/s3.md)) and metadata in DynamoDB.
+
+### DynamoDB vs RDS
+
+A major architecture decision. **RDS/Aurora**: relational, SQL, structured schema, joins/relationships — see [RDS & Aurora](rds-aurora.md). **DynamoDB**: NoSQL, flexible schema, massive horizontal scale, very low latency.
+
+!!! warning "Exam Trigger"
+    "Schema changes frequently" → DynamoDB may fit better.
+
 ### When DynamoDB Fits Best
 
 Think:
@@ -112,6 +139,21 @@ AWS handles capacity automatically. Best for:
 
     This is highly testable.
 
+#### Provisioned vs On-Demand
+
+| Requirement | Best choice |
+|---|---|
+| Predictable workload | Provisioned |
+| Stable traffic | Provisioned |
+| Cost optimization | Provisioned |
+| Sudden unpredictable spikes | On-Demand |
+| Unknown workload | On-Demand |
+| Very infrequent usage | On-Demand |
+
+#### DynamoDB Auto Scaling
+
+Provisioned mode can still automatically scale — e.g. Min = 10 RCU, Max = 1000 RCU, target utilization = 70%, and DynamoDB adjusts provisioned capacity. Provisioned + Auto Scaling = planned capacity that adjusts; On-Demand = no capacity planning at all.
+
 ### DynamoDB TTL
 
 TTL automatically expires items.
@@ -142,6 +184,10 @@ Purpose: cache DynamoDB reads. Keyword: **microsecond read latency**.
 !!! warning "Exam Trigger"
     "DynamoDB workload needs microsecond cached reads." → **DAX**
 
+#### DAX vs ElastiCache
+
+DAX is designed specifically as a cache in front of DynamoDB (`App → DAX → DynamoDB`). ElastiCache may be used for broader/custom caching patterns or aggregated results. Exam shortcut: DynamoDB cache → DAX.
+
 ### DynamoDB Streams
 
 Tracks changes such as `INSERT`, `UPDATE`, `DELETE`.
@@ -156,6 +202,8 @@ flowchart LR
 
 !!! warning "Exam Trigger"
     "React whenever DynamoDB data changes." → **DynamoDB Streams**
+
+DynamoDB Streams retain changes for **24 hours** — a short-lived change stream designed for reacting to DynamoDB modifications, not long-term retention.
 
 ### DynamoDB → Kinesis Data Streams
 
@@ -184,6 +232,8 @@ Applications can read/write across Regions.
 !!! warning "Exam Keyword"
     **Active-Active multi-Region NoSQL** → **DynamoDB Global Tables**
 
+DynamoDB Streams must be enabled for Global Tables to work. Memory: Global Tables → multi-Region active-active.
+
 ### DynamoDB Backup & Restore
 
 #### Point-in-Time Recovery
@@ -193,6 +243,8 @@ Up to 35 days. Restores to **a new table**.
 #### On-Demand Backups
 
 Used for longer-term backup retention. Again, restore creates a new table.
+
+[AWS Backup](../resilience/disaster-recovery.md) can also manage DynamoDB backups centrally — useful for lifecycle policies, centralized backup management, and cross-Region backup copies.
 
 ### DynamoDB Export / Import via S3
 
