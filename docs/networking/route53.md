@@ -622,38 +622,34 @@ flowchart LR
 
 ## Final Memory Tree
 
-```mermaid
-mindmap
-  root((ROUTE 53))
-    DNS
-      A → IPv4
-      AAAA → IPv6
-      CNAME → hostname
-      Alias → AWS resource / apex supported
-      NS → authoritative servers
-    Hosted Zones
-      Public
-      Private
-    Routing
-      Simple → basic
-      Weighted → percentage
-      Latency → fastest
-      Failover → primary/secondary
-      Geolocation → user location
-      Geoproximity → distance + bias
-      IP-Based → client CIDR
-      Multi-Value → many healthy answers
-    Health Checks
-      Public Endpoint
-      Calculated
-      CloudWatch Alarm → private resource
-    Domains
-      Registrar
-      DNS Provider
-    "Resolver / Hybrid DNS"
-      Inbound → On-Prem to AWS
-      Outbound → AWS to On-Prem
-```
+- **DNS**
+    - A → IPv4
+    - AAAA → IPv6
+    - CNAME → hostname
+    - Alias → AWS resource / apex supported
+    - NS → authoritative servers
+- **Hosted Zones**
+    - Public
+    - Private
+- **Routing**
+    - Simple → basic
+    - Weighted → percentage
+    - Latency → fastest
+    - Failover → primary/secondary
+    - Geolocation → user location
+    - Geoproximity → distance + bias
+    - IP-Based → client CIDR
+    - Multi-Value → many healthy answers
+- **Health Checks**
+    - Public Endpoint
+    - Calculated
+    - CloudWatch Alarm → private resource
+- **Domains**
+    - Registrar
+    - DNS Provider
+- **Resolver / Hybrid DNS**
+    - Inbound → On-Prem to AWS
+    - Outbound → AWS to On-Prem
 
 !!! tip "One-Minute Pre-Exam Recall"
     Simple = basic · Weighted = percentage · Latency = fastest · Failover = active/passive · Geolocation = user's location · Geoproximity = location + bias · IP-Based = CIDR · Multi-Value = multiple healthy answers
