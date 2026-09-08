@@ -96,3 +96,4 @@ nav:
       - Disaster Recovery: resilience/disaster-recovery.md
   - Exam Practice:
       - Scenario Walkthroughs: exam-practice/saa-discussion-scenarios.md
+      - Practice Exam (Quiz): quiz/index.md

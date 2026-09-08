@@ -1,0 +1,12 @@
+{
+  "banks": [
+    {
+      "id": "saa-c03-100",
+      "title": "SAA-C03 Practice Questions",
+      "description": "100 scenario-based practice questions with full explanations for every option.",
+      "file": "saa-c03-100.json",
+      "count": 100,
+      "parts": 4
+    }
+  ]
+}

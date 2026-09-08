@@ -117,5 +117,7 @@ If these notes help you pass, a :material-star: [star on GitHub](https://github.
 
 - :material-lightbulb-group: **[Scenario Walkthroughs](exam-practice/saa-discussion-scenarios.md)**
   End-to-end architecture scenarios that combine services the way the exam does.
+- :material-checkbox-marked-circle-outline: **[Practice Exam (Quiz)](quiz/index.md)**
+  100 interactive scenario questions — wrong picks explain why, right picks show the full breakdown.
 
 </div>
